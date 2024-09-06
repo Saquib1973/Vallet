@@ -1,28 +1,29 @@
-'use client';
-import { createContext, useEffect, useState, ReactNode } from 'react';
+'use client'
+import { createContext, useEffect, useState, ReactNode } from 'react'
 
-// Step 1: Define a type for the context
 interface MnemonicContextType {
-  mnemonic: string;
-  setMnemonic: (mnemonic: string) => void;
+  mnemonic: string | null
+  setMnemonic: (mnemonic: string | null) => void
 }
 
-// Step 2: Create the context with the type
-export const MnemonicContext = createContext<MnemonicContextType | undefined>(undefined);
+export const MnemonicContext = createContext<MnemonicContextType>({
+  mnemonic: null,
+  setMnemonic: () => {},
+})
 
 export default function Context({ children }: { children: ReactNode }) {
-  const [mnemonic, setMnemonic] = useState<string>('');
+  const [mnemonic, setMnemonic] = useState<string | null>(null)
 
   useEffect(() => {
-    const mn = localStorage.getItem('velvet-mnemonic');
+    const mn = localStorage.getItem('velvet-mnemonic')
     if (mn) {
-      setMnemonic(mn);
+      setMnemonic(mn)
     }
-  }, []);
+  }, [])
 
   return (
     <MnemonicContext.Provider value={{ mnemonic, setMnemonic }}>
       {children}
     </MnemonicContext.Provider>
-  );
+  )
 }

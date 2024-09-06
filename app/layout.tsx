@@ -4,6 +4,8 @@ import Navbar from './components/Navbar'
 import './globals.css'
 import Provider from './providers/NextUIProvider'
 import Context from './providers/MnemonicContext'
+import Footer from './components/Footer'
+import AddressContextProvider  from './providers/WalletContext'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -22,8 +24,11 @@ export default function RootLayout({
         <div className="max-w-5xl mx-auto">
           <Provider>
             <Context>
+              <AddressContextProvider>
               <Navbar />
               {children}
+              <Footer />
+              </AddressContextProvider>
             </Context>
           </Provider>
         </div>

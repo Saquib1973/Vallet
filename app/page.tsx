@@ -9,8 +9,8 @@ import { Tabs, Tab, Card, CardBody } from '@nextui-org/react'
 export default function Home() {
   return (
     <FadeInWrapper>
-      <div className="flex max-md:flex- gap-1 py-5">
-        <div className="flex flex-col md:max-w-[40%] justify-center">
+      <div className="flex px-2 max-md:flex-col-reverse  gap-1 py-5 ">
+        <div className="flex flex-col md:max-w-[40%] max-md:mx-auto justify-center">
           <div>
             <span className="text-3xl font-bold">
               A <span className="text-purple-500">Crypto</span> Wallet
@@ -47,9 +47,13 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Image alt="web3 wallet" className="ml-auto" src={img1} />
+        <Image
+          alt="web3 wallet"
+          className="max-md:mx-auto md:ml-auto max-md:size-[80%] size-[60%] "
+          src={img1}
+        />
       </div>
-      <div className="flex w-full flex-col">
+      <div className="flex w-full mt-5 flex-col">
         <Tabs className="ml-auto">
           <Tab key="ethereum" title="Ethereum">
             <Card>

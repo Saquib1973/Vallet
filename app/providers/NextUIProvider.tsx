@@ -13,7 +13,7 @@ const Provider = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <NextUIProvider>
-      <ThemeProvider attribute="class" themes={['light', 'dark']}>
+      <ThemeProvider attribute="class" defaultTheme='dark' themes={['light', 'dark']}>
         {children}
       </ThemeProvider>
     </NextUIProvider>

@@ -19,8 +19,14 @@ body {
 }
 
 @layer utilities {
+    ::selection {
+        @apply bg-purple-200/80 dark:bg-purple-700/80;
+      }
   .page-height {
-    @apply z-40 min-h-[calc(100vh-70px)] py-5;
+    @apply z-40 min-h-[calc(100vh-110px)] py-5;
+  }
+  .heading {
+    @apply text-2xl md:text-3xl my-1 font-bold ml-4
   }
 
   .text-balance {
